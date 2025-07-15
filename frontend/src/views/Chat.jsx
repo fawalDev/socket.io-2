@@ -8,7 +8,7 @@ export default function Chat() {
         msg, setMsg,
         userName, setUserName,
         room, setRoom,
-        sendMsg
+        sendMsg, joinRoom
     } = useContext(ChatContext)
 
     function submit(e) {
@@ -28,7 +28,7 @@ export default function Chat() {
                     <h3>Tham gia phòng chat</h3>
                     <input type="text" className="join-input" placeholder="Nhập tên của bạn..." value={userName} onChange={e => setUserName(e.target.value)} />
                     <input type="text" className="join-input" placeholder="Nhập ID phòng..." value={room} onChange={e => setRoom(e.target.value)} />
-                    <button className="join-btn">Tham gia phòng</button>
+                    <button className="join-btn" onClick={e => joinRoom(room)}>Tham gia phòng</button>
                 </div>
 
                 <div className="chat-messages">

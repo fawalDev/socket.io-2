@@ -42,6 +42,18 @@ io.on('connection', socket => {
             socket.broadcast.emit('message', msg, user)
         // socket.emit('message', msg, user)
     })
+    socket.on('join-room', (room) => {
+        socket.join(room)
+        console.log(`Client ${socket.id} joined room ${room}`)
+        const size = io.sockets.adapter.rooms.get('123')?.size
+        console.log(`Room 123 has ${size} clients`)
+
+    })
+    socket.on('disconnect', () => {
+        console.log(`Client ${socket.id} disconnected`)
+        const size = io.sockets.adapter.rooms.get('123')?.size
+        console.log(`Room 123 has ${size} clients`)
+    })
 })
 
 

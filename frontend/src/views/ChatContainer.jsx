@@ -39,12 +39,18 @@ export default function ChatContainer() {
         setMsgsList(prev => [...prev, { msg, user }])
     }, [setMsg, setMsgsList])
 
+    const joinRoom = useCallback(function (room) {
+        socket.emit('join-room', room)
+
+    }, [setMsg, setMsgsList])
+
+
     const value = {
         msgsList, setMsgsList,
         msg, setMsg,
         userName, setUserName,
         room, setRoom,
-        sendMsg
+        sendMsg, joinRoom
     }
 
     return <ChatContext.Provider value={value}>
