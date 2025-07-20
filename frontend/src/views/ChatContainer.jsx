@@ -40,7 +40,9 @@ export default function ChatContainer() {
     }, [setMsg, setMsgsList])
 
     const joinRoom = useCallback(function (room) {
-        socket.emit('join-room', room)
+        socket.emit('join-room', room,
+            (msg) => { alert(msg) }
+        )
 
     }, [setMsg, setMsgsList])
 

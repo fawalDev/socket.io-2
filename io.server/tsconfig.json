@@ -20,7 +20,7 @@
         "forceConsistentCasingInFileNames": true
     },
     "include": [
-        "d.ts",
+        "d.ts/*.d.ts",
         "src"
     ]
 }
